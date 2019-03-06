@@ -17,19 +17,19 @@ class SSOTokenData {
 		this.nbf = tokenVals.CLAIM_NOT_BEFORE;
 		this.iat = tokenVals.CLAIM_ISSUED_AT;
 		this.iss = tokenVals.CLAIM_ISSUER;
-		this.instanceId = tokenVals.CLAIM_INSTANCE_ID;
-		this.instanceName	= tokenVals.CLAIM_INSTANCE_NAME;
+		this.instance_id = tokenVals.CLAIM_INSTANCE_ID;
+		this.instance_name = tokenVals.CLAIM_INSTANCE_NAME;
 		this.sub = tokenVals.CLAIM_USER_ID;
-		this.externalId = tokenVals.CLAIM_USER_EXTERNAL_ID;
+		this.external_Id = tokenVals.CLAIM_USER_EXTERNAL_ID;
 		this.name = tokenVals.CLAIM_USER_FULL_NAME;
-		this.givenName = tokenVals.CLAIM_USER_FIRST_NAME;
-		this.familyName = tokenVals.CLAIM_USER_LAST_NAME;
+		this.given_name = tokenVals.CLAIM_USER_FIRST_NAME;
+		this.family_name = tokenVals.CLAIM_USER_LAST_NAME;
 		this.role = tokenVals.CLAIM_USER_ROLE;
 		this.type = tokenVals.CLAIM_ENTITY_TYPE;
-		this.themingText = tokenVals.CLAIM_THEME_TEXT_COLOR;
-		this.themingBg = tokenVals.CLAIM_THEME_BACKGROUND_COLOR;
+		this.theming_text = tokenVals.CLAIM_THEME_TEXT_COLOR;
+		this.theming_bg = tokenVals.CLAIM_THEME_BACKGROUND_COLOR;
 		this.locale = tokenVals.CLAIM_USER_LOCALE;
-		this.tags		= tokenVals.USER_TAGS;
+		this.tags = tokenVals.USER_TAGS;
 	}
 
 	/**
@@ -43,7 +43,7 @@ class SSOTokenData {
 	 * if no callback is specified.
 	 */
 	getSigned(secret, cb) {
-		if(secret && typeof secret !== 'string') {
+		if (secret && typeof secret !== 'string') {
 			if (!cb) {
 				throw new Error('Secret must be a string value');
 			}
@@ -64,7 +64,7 @@ class SSOTokenData {
 				return jwt.sign(this.toJSObj(), secret, {algorithm: 'RS256'});
 			}
 			jwt.sign(this.toJSObj(), secret, {algorithm: 'RS256'}, cb);
-		} catch(err) {
+		} catch (err) {
 			console.log('error in signing jdk', err);
 			// throw new Error(err);
 		}
@@ -107,17 +107,17 @@ class SSOTokenData {
 			nbf: this.nbf,
 			iat: this.iat,
 			iss: this.iss,
-			instanceId: this.instanceId,
-			instanceName: this.instanceName,
+			instance_id: this.instance_id,
+			instance_name: this.instance_name,
 			sub: this.sub,
-			externalId: this.externalId,
+			external_Id: this.external_Id,
 			name: this.name,
-			givenName: this.givenName,
-			familyName: this.familyName,
+			given_name: this.given_name,
+			family_name: this.family_name,
 			role: this.role,
 			type: this.type,
-			themingText: this.themingText,
-			themingBg: this.themingBg,
+			theming_text: this.theming_text,
+			theming_bg: this.theming_bg,
 			locale: this.locale,
 			tags: this.tags,
 		};
@@ -133,17 +133,17 @@ class SSOTokenData {
 			CLAIM_NOT_BEFORE: this.nbf,
 			CLAIM_ISSUED_AT: this.iat,
 			CLAIM_ISSUER: this.iss,
-			CLAIM_INSTANCE_ID: this.instanceId,
-			CLAIM_INSTANCE_NAME: this.instanceName,
+			CLAIM_INSTANCE_ID: this.instance_id,
+			CLAIM_INSTANCE_NAME: this.instance_name,
 			CLAIM_USER_ID: this.sub,
-			CLAIM_USER_EXTERNAL_ID: this.externalId,
+			CLAIM_USER_EXTERNAL_ID: this.external_Id,
 			CLAIM_USER_FULL_NAME: this.name,
-			CLAIM_USER_FIRST_NAME: this.givenName,
-			CLAIM_USER_LAST_NAME: this.familyName,
+			CLAIM_USER_FIRST_NAME: this.given_name,
+			CLAIM_USER_LAST_NAME: this.family_name,
 			CLAIM_USER_ROLE: this.role,
 			CLAIM_ENTITY_TYPE: this.type,
-			CLAIM_THEME_TEXT_COLOR: this.themingText,
-			CLAIM_THEME_BACKGROUND_COLOR: this.themingBg,
+			CLAIM_THEME_TEXT_COLOR: this.theming_text,
+			CLAIM_THEME_BACKGROUND_COLOR: this.theming_bg,
 			CLAIM_USER_LOCALE: this.locale,
 			USER_TAGS: this.tags,
 		};
