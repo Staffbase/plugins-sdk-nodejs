@@ -20,7 +20,7 @@ class SSOTokenData {
 		this.instance_id = tokenVals.CLAIM_INSTANCE_ID;
 		this.instance_name = tokenVals.CLAIM_INSTANCE_NAME;
 		this.sub = tokenVals.CLAIM_USER_ID;
-		this.external_Id = tokenVals.CLAIM_USER_EXTERNAL_ID;
+		this.external_id = tokenVals.CLAIM_USER_EXTERNAL_ID;
 		this.name = tokenVals.CLAIM_USER_FULL_NAME;
 		this.given_name = tokenVals.CLAIM_USER_FIRST_NAME;
 		this.family_name = tokenVals.CLAIM_USER_LAST_NAME;
@@ -110,7 +110,7 @@ class SSOTokenData {
 			instance_id: this.instance_id,
 			instance_name: this.instance_name,
 			sub: this.sub,
-			external_Id: this.external_Id,
+			external_id: this.external_id,
 			name: this.name,
 			given_name: this.given_name,
 			family_name: this.family_name,
@@ -136,7 +136,7 @@ class SSOTokenData {
 			CLAIM_INSTANCE_ID: this.instance_id,
 			CLAIM_INSTANCE_NAME: this.instance_name,
 			CLAIM_USER_ID: this.sub,
-			CLAIM_USER_EXTERNAL_ID: this.external_Id,
+			CLAIM_USER_EXTERNAL_ID: this.external_id,
 			CLAIM_USER_FULL_NAME: this.name,
 			CLAIM_USER_FIRST_NAME: this.given_name,
 			CLAIM_USER_LAST_NAME: this.family_name,

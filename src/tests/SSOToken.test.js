@@ -149,7 +149,7 @@ describe('Testing SSOToken Class', () => {
                 instance_id: '55c79b6ee4b06c6fb19bd1e2',
                 family_name: 'Doe',
                 given_name: 'John',
-                external_Id: 'jdoe',
+                external_id: 'jdoe',
                 iat: curTime,
                 instance_id: '55c79b6ee4b06c6fb19bd1e2',
                 instance_name: 'Our locations',

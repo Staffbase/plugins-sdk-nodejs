@@ -12,16 +12,16 @@ class SSOToken {
 	 * @param {String} tokenData Signed Token Data to be decoded
 	 */
 	constructor(audience, appSecret, tokenData) {
-    // Check validity of audience
-    if (audience === undefined || audience === null) {
-      throw new Error('Audience null or not specified');
-    }
-    if (typeof audience !== 'string') {
-      throw new Error('Audience must be a string value');
-    }
-    if (!audience.trim()) {
-      throw new Error('Audience cannot be an empty string');
-    }
+		// Check validity of audience
+		if (audience === undefined || audience === null) {
+			throw new Error('Audience null or not specified');
+		}
+		if (typeof audience !== 'string') {
+			throw new Error('Audience must be a string value');
+		}
+		if (!audience.trim()) {
+			throw new Error('Audience cannot be an empty string');
+		}
 
 		// Check Validity of appSecret
 		if (appSecret === undefined || appSecret === null) {
@@ -55,7 +55,7 @@ class SSOToken {
 			};
 			decoded = jwt.verify(tokenData, appSecret, jwtOpts);
 			// console.log('Decoded Data:', decoded);
-		} catch(err) {
+		} catch (err) {
 			if (err.message === 'invalid algorithm') {
 				throw new Error('Token Algorithm in not encoded in a supported format');
 			}
@@ -77,7 +77,7 @@ class SSOToken {
 			CLAIM_INSTANCE_ID: decoded.instance_id || null,
 			CLAIM_INSTANCE_NAME: decoded.instance_name || null,
 			CLAIM_USER_ID: decoded.sub || null,
-			CLAIM_USER_EXTERNAL_ID: decoded.external_Id || null,
+			CLAIM_USER_EXTERNAL_ID: decoded.external_id || null,
 			CLAIM_USER_FULL_NAME: decoded.name || null,
 			CLAIM_USER_FIRST_NAME: decoded.given_name || null,
 			CLAIM_USER_LAST_NAME: decoded.family_name || null,
