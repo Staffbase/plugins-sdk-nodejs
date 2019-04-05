@@ -26,11 +26,11 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.0.0",
     "@staffbase/eslint-config-staffbase": "^0.1.1",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.4.2",
+    "babel-jest": "^24.7.1",
     "dmd-bitbucket": "^0.1.10",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
