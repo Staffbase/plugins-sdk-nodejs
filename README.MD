@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Staffbase/plugins-sdk-nodejs.svg?branch=master)](https://travis-ci.org/Staffbase/plugins-sdk-nodejs)
+[![Build Status](https://travis-ci.org/Staffbase/plugins-sdk-nodejs.svg?branch=master)](https://travis-ci.org/Staffbase/plugins-sdk-nodejs) [![Greenkeeper badge](https://badges.greenkeeper.io/Staffbase/plugins-sdk-nodejs.svg)](https://greenkeeper.io/)
 
 # Staffbase Plugins SDK for Node.js.
 
