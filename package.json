@@ -1,13 +1,13 @@
 {
   "name": "@staffbase/staffbase-plugin-sdk",
-  "version": "1.0.3",
+  "version": "1.1.3",
   "description": "Staffbase Plugin SDK for Javascript / Node.js",
   "main": "./dist/index.js",
   "scripts": {
     "test": "npm run build && jest",
     "test:verbose": "npm run build && jest --verbose",
     "test:coverage": "npm run build && jest --coverage",
-    "build": "babel src --presets babel-preset-es2015 --out-dir dist",
+    "build": "babel src --out-dir dist",
     "prepublish": "npm run build && npm run readme",
     "readme": "node docSrc/buildDoc.js"
   },
@@ -25,16 +25,18 @@
   "author": "Hassaan Zaidi <hassaan@staffbase.com>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.0.0",
     "@staffbase/eslint-config-staffbase": "^0.1.1",
-    "babel-cli": "^6.24.1",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.7.1",
     "dmd-bitbucket": "^0.1.10",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.12.0",
-    "handlebars": "^4.0.6",
+    "handlebars": "^4.1.1",
     "jest": "^24.7.1",
     "jsdoc-to-markdown": "^4.0.1",
-    "node-rsa": "^1.0.5",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
