@@ -787,10 +787,10 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/yargs" "^12.0.9"
 
-"@staffbase/eslint-config-staffbase@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@staffbase/eslint-config-staffbase/-/eslint-config-staffbase-0.1.1.tgz#514c5f88b647e302e83b3d1cfc388ccab2ae34e7"
-  integrity sha1-UUxfiLZH4wLoOz0c/DiMyrKuNOc=
+"@staffbase/eslint-config-staffbase@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@staffbase/eslint-config-staffbase/-/eslint-config-staffbase-1.0.0.tgz#f4b0d9f2cf9729fb6d88471478f4fa34ebcf3a29"
+  integrity sha512-6ApBOOB3qnA0uFLelkjPCgz4CrN72jWAXjx9Ev7mszMnXDj4h5b0VYIdHVmy18dkq40qEHbUzw6kiloWagsQEg==
 
 "@types/babel__core@^7.1.0":
   version "7.1.0"
