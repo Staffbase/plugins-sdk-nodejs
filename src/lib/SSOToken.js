@@ -56,18 +56,25 @@ class SSOToken {
 			decoded = jwt.verify(tokenData, appSecret, jwtOpts);
 			// console.log('Decoded Data:', decoded);
 		} catch (err) {
-			if (err.message === 'invalid algorithm') {
-				throw new Error('Token Algorithm in not encoded in a supported format');
-			}
-			if (err.message.indexOf('PEM routines:get_name:no start line') !== -1) {
-				throw new Error('Unable to read public key');
-			}
-			if (err.message.indexOf('jwt audience invalid') !== -1) {
-				throw new Error('Incorrect audience value');
-			}
-			// console.log('Unhandled jwt error', err);
-			throw new Error(err);
+      const message = err.message;
+
+      switch (true) {
+        case message === 'invalid algorithm':
+			   throw new Error('Token Algorithm in not encoded in a supported format');
+
+        case message.indexOf('PEM routines:get_name:no start line') !== -1:
+        case message.indexOf('PEM_read_bio_PUBKEY failed') !== -1:
+			   throw new Error('Unable to read public key');
+
+        case message.indexOf('jwt audience invalid') !== -1:
+			   throw new Error('Incorrect audience value');
+
+        default:
+			    // console.log('Unhandled jwt error', err);
+			    throw new Error(err);
+      }
 		}
+
 		let tokenDataInst = new TokenData({
 			CLAIM_AUDIENCE: decoded.aud || null,
 			CLAIM_EXPIRE_AT: decoded.exp || null,
