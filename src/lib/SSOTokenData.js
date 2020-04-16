@@ -48,6 +48,7 @@ class SSOTokenData {
 				throw new Error('Secret must be a string value');
 			}
 			cb('Secret must be a string value');
+      return;
 		}
 		if (cb && typeof cb !== 'function') {
 			throw new Error('Callback must be a function');
@@ -58,6 +59,7 @@ class SSOTokenData {
 				throw new Error('No secret specified');
 			}
 			cb('No secret specified');
+      return;
 		}
 		try {
 			if (!cb) {
