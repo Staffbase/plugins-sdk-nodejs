@@ -59,7 +59,7 @@ class SSOToken {
 			if (err.message === 'invalid algorithm') {
 				throw new Error('Token Algorithm in not encoded in a supported format');
 			}
-      if (err.message.indexOf('PEM routines:get_name:no start line') !== -1) {
+			if (err.message.indexOf('PEM routines:get_name:no start line') !== -1) {
 				throw new Error('Unable to read public key');
 			}
 			if (err.message.indexOf('jwt audience invalid') !== -1) {
