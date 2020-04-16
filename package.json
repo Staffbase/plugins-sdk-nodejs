@@ -28,7 +28,7 @@
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.0.0",
-    "@staffbase/eslint-config-staffbase": "^0.1.1",
+    "@staffbase/eslint-config-staffbase": "^1.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.7.1",
     "dmd-bitbucket": "^0.1.10",
