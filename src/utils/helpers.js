@@ -15,12 +15,12 @@ function readKeyFile(path, cb) {
     }
     return cb('Path not specified or empty');
   }
-  if(!cb) {
+  if (!cb) {
     try {
-      let fileContent = fs.readFileSync(path);
-      let key = new NodeRSA(fileContent.toString(), 'pkcs8-public');
+      const fileContent = fs.readFileSync(path);
+      const key = new NodeRSA(fileContent.toString(), 'pkcs8-public');
       return key.exportKey('pkcs8-public-pem');
-    } catch(err) {
+    } catch (err) {
       if (err.message.indexOf('ENOENT: no such file or directory') !== -1) {
         throw new Error('Invalid file path');
       }
@@ -39,7 +39,7 @@ function readKeyFile(path, cb) {
         return cb(err);
       }
       try {
-        let key = new NodeRSA(res.toString(), 'pkcs8-public');
+        const key = new NodeRSA(res.toString(), 'pkcs8-public');
         return cb(null, key.exportKey('pkcs8-public-pem'));
       } catch (err) {
         if (err.message === 'encoding too long') {
@@ -93,8 +93,8 @@ function transformKeyToFormat(key, type='PUBLIC KEY') {
   }
   // console.log('IsPKCS8: ', isPKCS8Format(key));
   // Convert key to PKCS8 if the key is just a single line binary format.
-  if(key.indexOf('\n') === -1) {
-    let convertedKey = asCert(key);
+  if (key.indexOf('\n') === -1) {
+    const convertedKey = asCert(key);
     // console.log('Converted key to PKCS8', convertedKey);
     return convertedKey;
   }

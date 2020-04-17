@@ -1,9 +1,9 @@
 const helpers = require('../utils/helpers');
 const path = require('path');
 
-let invalidFilePath = path.resolve(__dirname, '../../testKeyFiles/missingfile.key');
-let filePathInvKey = path.resolve(__dirname, '../../testKeyFiles/jwtRS256.key.pub');
-let filePathValidKey = path.resolve(__dirname, '../../testKeyFiles/jwtRS256.pub');
+const invalidFilePath = path.resolve(__dirname, '../../testKeyFiles/missingfile.key');
+const filePathInvKey = path.resolve(__dirname, '../../testKeyFiles/jwtRS256.key.pub');
+const filePathValidKey = path.resolve(__dirname, '../../testKeyFiles/jwtRS256.pub');
 
 // eslint-disable-next-line max-len
 const sampleBinaryKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApXd6RqV95G7+alU1PmA49n9IG8mCT27vpCpTJz3MGH+pqBEp6gLYDkP6lxK4ix5dy9NrOcKnaIWJ3xAc/JU+rVt6CiEyqJo4rchrNnRQsn4+P+efuVlsL959MqjzQC98qcVdf44C3wrxsOHE823zRACsJylOFkf7KkXd9c8L8vIj9x29q5K7NkGRKtOLKY7k4QPhlCVFDkMgAidHvi8HD7HDI6KYljguuhHUtRdrmC4i0NuwpSdqsavUJ9ASQu9Cr0QhpzOFJeZQ91ZkLoSDAkpSXAfBS+lvGtEnWLh7q3JczJOb3Tz8YolUTGfBlJ9iXiHDcY8PXdRTrvUVqeTe3wIDAQAB';
@@ -50,7 +50,7 @@ describe('Testing Utilitiy functions', () => {
       });
       test('test reading valid public key file', () => {
         expect( () => {
-          let key = helpers.readKeyFile(filePathValidKey);
+          const key = helpers.readKeyFile(filePathValidKey);
           // @TODO find regexp for PKCS8 Key format
           // expect(key).toMatch(/-----BEGIN PUBLIC KEY-----*-----END PUBLIC KEY-----/)
           // console.log('GOT KEY:', key);
@@ -111,14 +111,14 @@ describe('Testing Utilitiy functions', () => {
     });
     test('test transforming from Binary to PKCS8 format', () => {
       expect( () => {
-        let formattedSecret = helpers.transformKeyToFormat(sampleBinaryKey);
+        const formattedSecret = helpers.transformKeyToFormat(sampleBinaryKey);
         expect(formattedSecret.indexOf('-----BEGIN PUBLIC KEY-----')).not.toEqual(-1);
         expect(formattedSecret.indexOf('-----END PUBLIC KEY-----')).not.toEqual(-1);
       }).not.toThrow();
     });
     test('test tranforming key in PKCS8 format', () => {
       expect( () => {
-        let formattedSecret = helpers.transformKeyToFormat(samplePKCS8Key);
+        const formattedSecret = helpers.transformKeyToFormat(samplePKCS8Key);
         expect(formattedSecret).toEqual(samplePKCS8Key);
       }).not.toThrow();
     });

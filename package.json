@@ -7,6 +7,8 @@
     "test": "npm run build && jest",
     "test:verbose": "npm run build && jest --verbose",
     "test:coverage": "npm run build && jest --coverage",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "fix": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build && npm run readme",
     "readme": "node docSrc/buildDoc.js"
@@ -22,25 +24,29 @@
     "type": "git",
     "url": "https://github.com/Staffbase/plugins-sdk-nodejs"
   },
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "author": "Hassaan Zaidi <hassaan@staffbase.com>",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.0.0",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.0.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@staffbase/eslint-config-staffbase": "^1.0.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.7.1",
+    "babel-jest": "^25.3.0",
     "dmd-bitbucket": "^0.1.10",
-    "eslint": "^6.0.0",
-    "eslint-config-google": "^0.12.0",
-    "handlebars": "^4.1.1",
-    "jest": "^24.7.1",
-    "jsdoc-to-markdown": "^4.0.1",
+    "eslint": "^6.8.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-node": "11.1.0",
+    "handlebars": "^4.7.6",
+    "jest": "^25.3.0",
+    "jsdoc-to-markdown": "^5.0.3",
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
-    "node-rsa": "^1.0.5"
+    "node-rsa": "^1.0.8"
   }
 }
