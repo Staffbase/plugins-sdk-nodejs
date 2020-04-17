@@ -7,6 +7,8 @@
     "test": "npm run build && jest",
     "test:verbose": "npm run build && jest --verbose",
     "test:coverage": "npm run build && jest --coverage",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "fix": "eslint --ext .js,.jsx,.ts,.tsx --fix .",
     "build": "babel src --out-dir dist",
     "prepublish": "npm run build && npm run readme",
     "readme": "node docSrc/buildDoc.js"
@@ -37,6 +39,7 @@
     "dmd-bitbucket": "^0.1.10",
     "eslint": "^6.8.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-node": "11.1.0",
     "handlebars": "^4.7.6",
     "jest": "^25.3.0",
     "jsdoc-to-markdown": "^5.0.3",
