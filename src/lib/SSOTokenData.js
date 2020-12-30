@@ -21,6 +21,8 @@ class SSOTokenData {
     this.instance_name = tokenVals.CLAIM_INSTANCE_NAME;
     this.sub = tokenVals.CLAIM_USER_ID;
     this.external_id = tokenVals.CLAIM_USER_EXTERNAL_ID;
+    this.username = tokenVals.CLAIM_USER_USERNAME;
+    this.primary_email_address = tokenVals.CLAIM_USER_PRIMARY_EMAIL_ADDRESS;
     this.name = tokenVals.CLAIM_USER_FULL_NAME;
     this.given_name = tokenVals.CLAIM_USER_FIRST_NAME;
     this.family_name = tokenVals.CLAIM_USER_LAST_NAME;
@@ -113,6 +115,8 @@ class SSOTokenData {
       instance_name: this.instance_name,
       sub: this.sub,
       external_id: this.external_id,
+      username: this.username,
+      primary_email_address: this.primary_email_address,
       name: this.name,
       given_name: this.given_name,
       family_name: this.family_name,
@@ -139,6 +143,8 @@ class SSOTokenData {
       CLAIM_INSTANCE_NAME: this.instance_name,
       CLAIM_USER_ID: this.sub,
       CLAIM_USER_EXTERNAL_ID: this.external_id,
+      CLAIM_USER_USERNAME: this.username,
+      CLAIM_USER_PRIMARY_EMAIL_ADDRESS: this.primary_email_address,
       CLAIM_USER_FULL_NAME: this.name,
       CLAIM_USER_FIRST_NAME: this.given_name,
       CLAIM_USER_LAST_NAME: this.family_name,
@@ -245,6 +251,24 @@ class SSOTokenData {
    */
   getUserExternalId() {
     return this._getClaim('CLAIM_USER_EXTERNAL_ID');
+  }
+
+  /**
+   * Get the username of the user accessing.
+   *
+   * @return {null|string}
+   */
+  getUserUsername() {
+    return this._getClaim('CLAIM_USER_USERNAME');
+  }
+
+  /**
+   * Get the primary email address of the user accessing.
+   *
+   * @return {null|string}
+   */
+  getUserPrimaryEmailAddress() {
+    return this._getClaim('CLAIM_USER_PRIMARY_EMAIL_ADDRESS');
   }
 
   /**
