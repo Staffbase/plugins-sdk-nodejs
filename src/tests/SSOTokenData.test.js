@@ -18,6 +18,8 @@ const tokenDataVals = {
   CLAIM_INSTANCE_NAME: 'Our locations',
   CLAIM_USER_ID: '541954c3e4b08bbdce1a340a',
   CLAIM_USER_EXTERNAL_ID: 'jdoe',
+  CLAIM_USER_USERNAME: 'john.doe',
+  CLAIM_USER_PRIMARY_EMAIL_ADDRESS: 'jdoe@email.com',
   CLAIM_USER_FULL_NAME: 'John Doe',
   CLAIM_USER_FIRST_NAME: 'John',
   CLAIM_USER_LAST_NAME: 'Doe',

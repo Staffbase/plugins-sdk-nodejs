@@ -85,6 +85,8 @@ class SSOToken {
       CLAIM_INSTANCE_NAME: decoded.instance_name || null,
       CLAIM_USER_ID: decoded.sub || null,
       CLAIM_USER_EXTERNAL_ID: decoded.external_id || null,
+      CLAIM_USER_USERNAME: decoded.username || null,
+      CLAIM_USER_PRIMARY_EMAIL_ADDRESS: decoded.primary_email_address || null,
       CLAIM_USER_FULL_NAME: decoded.name || null,
       CLAIM_USER_FIRST_NAME: decoded.given_name || null,
       CLAIM_USER_LAST_NAME: decoded.family_name || null,

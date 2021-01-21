@@ -63,6 +63,8 @@ The following data can be retrieved from the token:
 |CLAIM_INSTANCE_NAME|instance_name|getInstanceName()|Get the (plugin) instance name for which the token was issued.|
 |CLAIM_USER_ID|sub|getUserId()|Get the id of the authenticated user.|
 |CLAIM_USER_EXTERNAL_ID|external_id|getUserExternalId()|Get the id of the user in an external system.|
+|CLAIM_USER_USERNAME|username|getUserUsername()|Get the username of the user accessing.|
+|CLAIM_USER_PRIMARY_EMAIL_ADDRESS|primary_email_address|getUserPrimaryEmailAddress()|Get the primary email address of the user accessing.|
 |CLAIM_USER_FULL_NAME|name|getFullName()|Get either the combined name of the user or the name of the token.|
 |CLAIM_USER_FIRST_NAME|given_name|getFirstName()|Get the first name of the user accessing.|
 |CLAIM_USER_LAST_NAME|family_name|getLastName()|Get the last name of the user accessing.|

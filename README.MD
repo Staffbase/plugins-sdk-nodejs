@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/Staffbase/plugins-sdk-nodejs.svg?branch=master)](https://travis-ci.org/Staffbase/plugins-sdk-nodejs)
-
 # Staffbase Plugins SDK for Node.js.
 
 If you are developing your own plugin for your Staffbase app we describe the authentication flow of a plugin at https://developers.staffbase.com/guide/customplugin-overview/. While this documentation just covers the conceptual ideas of the interface of plugins though – the so called Plugin SSO – we want to provide a library to help you develop your first plugin for Staffbase even faster. This SDK provides the basic functionality to parse and verify a provided token for Node.js.
@@ -87,6 +86,8 @@ The following data can be retrieved from the token:
 |CLAIM_INSTANCE_NAME|instance_name|getInstanceName()|Get the (plugin) instance name for which the token was issued.|
 |CLAIM_USER_ID|sub|getUserId()|Get the id of the authenticated user.|
 |CLAIM_USER_EXTERNAL_ID|external_id|getUserExternalId()|Get the id of the user in an external system.|
+|CLAIM_USER_USERNAME|username|getUserUsername()|Get the username of the user accessing.|
+|CLAIM_USER_PRIMARY_EMAIL_ADDRESS|primary_email_address|getUserPrimaryEmailAddress()|Get the primary email address of the user accessing.|
 |CLAIM_USER_FULL_NAME|name|getFullName()|Get either the combined name of the user or the name of the token.|
 |CLAIM_USER_FIRST_NAME|given_name|getFirstName()|Get the first name of the user accessing.|
 |CLAIM_USER_LAST_NAME|family_name|getLastName()|Get the last name of the user accessing.|
