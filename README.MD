@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/Staffbase/plugins-sdk-nodejs.svg?branch=master)](https://travis-ci.org/Staffbase/plugins-sdk-nodejs)
+[![Build Status](https://github.com/Staffbase/plugins-sdk-nodejs/workflows/Node.js%20CI/badge.svg)](https://github.com/Staffbase/plugins-sdk-nodejs/actions)
+
 # Staffbase Plugins SDK for Node.js.
 
 If you are developing your own plugin for your Staffbase app we describe the authentication flow of a plugin at https://developers.staffbase.com/guide/customplugin-overview/. While this documentation just covers the conceptual ideas of the interface of plugins though – the so called Plugin SSO – we want to provide a library to help you develop your first plugin for Staffbase even faster. This SDK provides the basic functionality to parse and verify a provided token for Node.js.
