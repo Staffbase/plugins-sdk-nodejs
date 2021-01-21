@@ -41,7 +41,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-node": "11.1.0",
     "handlebars": "^4.7.6",
-    "jest": "^25.3.0",
+    "jest": "^26.3.0",
     "jsdoc-to-markdown": "^5.0.3",
     "pre-commit": "^1.2.2"
   },
