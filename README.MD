@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Staffbase/plugins-sdk-nodejs.svg?branch=master)](https://travis-ci.org/Staffbase/plugins-sdk-nodejs)
+[![Build Status](https://github.com/Staffbase/plugins-sdk-nodejs/workflows/Node.js%20CI/badge.svg)](https://github.com/Staffbase/plugins-sdk-nodejs/actions)
 
 # Staffbase Plugins SDK for Node.js.
 
