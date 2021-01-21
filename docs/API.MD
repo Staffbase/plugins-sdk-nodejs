@@ -44,6 +44,8 @@ SSOTokenData Class used to host the token data values and provide getter functio
     * [.getInstanceName()](#markdown-header-ssotokendatagetinstancename-nullstring) ⇒ null ⎮ string
     * [.getUserId()](#markdown-header-ssotokendatagetuserid-nullstring) ⇒ null ⎮ string
     * [.getUserExternalId()](#markdown-header-ssotokendatagetuserexternalid-nullstring) ⇒ null ⎮ string
+    * [.getUserUsername()](#markdown-header-ssotokendatagetuserusername-nullstring) ⇒ null ⎮ string
+    * [.getUserPrimaryEmailAddress()](#markdown-header-ssotokendatagetuserprimaryemailaddress-nullstring) ⇒ null ⎮ string
     * [.getFullName()](#markdown-header-ssotokendatagetfullname-nullstring) ⇒ null ⎮ string
     * [.getFirstName()](#markdown-header-ssotokendatagetfirstname-nullstring) ⇒ null ⎮ string
     * [.getLastName()](#markdown-header-ssotokendatagetlastname-nullstring) ⇒ null ⎮ string
@@ -147,6 +149,14 @@ Get the id of the user in an external system.
 
 Example use case would be to map user from an external store
 to the entry defined in the token.
+
+**Kind**: instance method of [SSOTokenData](#markdown-header-new-ssotokendatatokenvals)  
+### ssoTokenData.getUserUsername() ⇒ null ⎮ string
+Get the username of the user accessing.
+
+**Kind**: instance method of [SSOTokenData](#markdown-header-new-ssotokendatatokenvals)  
+### ssoTokenData.getUserPrimaryEmailAddress() ⇒ null ⎮ string
+Get the primary email address of the user accessing.
 
 **Kind**: instance method of [SSOTokenData](#markdown-header-new-ssotokendatatokenvals)  
 ### ssoTokenData.getFullName() ⇒ null ⎮ string
