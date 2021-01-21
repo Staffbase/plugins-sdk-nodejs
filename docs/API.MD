@@ -1,20 +1,4 @@
 
-## Classes
-Global | Description
------- | -----------
-SSOToken | SSOToken Class. Used as an interface to decode the Staffbase SSO Token.
-SSOTokenData : SSOTokenData | SSOTokenData Class used to host the token data values and provide getter functions to extract correspinding values.
-
-## Functions
-Global | Description
------- | -----------
-ssoMiddleWare(secret, audience) ⇒ function | Mountable express middleware functions
-readKeyFile(path, cb) ⇒ String | Reads public key file from the specified path and returns a string representation
-of the key to be used to decode token.
-asCert(cert, type) ⇒ string | asCert converts a binary encoded key to PKCS8 format
-isPKCS8Format(key, type) ⇒ Boolean | Checks if the format of the key is similar to PKCS8 Format.
-transformKeyToFormat(key, type) ⇒ String | Transforms the provided key to PKCS8 format for supported jwt algorithm.
-
 ## SSOToken
 SSOToken Class. Used as an interface to decode the Staffbase SSO Token.
 
