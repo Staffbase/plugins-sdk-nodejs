@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: plugins-sdk-nodejs
+  annotations:
+    github.com/project-slug: Staffbase/plugins-sdk-nodejs
+  tags:
+    - javascript
+spec:
+  type: library
+  lifecycle: production
