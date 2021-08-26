@@ -4,8 +4,13 @@ metadata:
   name: plugins-sdk-nodejs
   annotations:
     github.com/project-slug: Staffbase/plugins-sdk-nodejs
+    jira/project-key: NFS
+    jira/component: sdk
   tags:
     - javascript
+    - sdk
+    - public
 spec:
   type: library
+  owner: need-for-speed
   lifecycle: production
