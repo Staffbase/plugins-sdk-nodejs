@@ -2,7 +2,7 @@ const fs = require('fs');
 const handlebars = require('handlebars');
 const path = require('path');
 
-const pluginNpmUrl = 'http://npmjs.org/package/staffbase-plugins-nodejs';
+const pluginNpmUrl = 'https://www.npmjs.com/package/@staffbase/staffbase-plugin-sdk';
 const pluginNpmName = '@staffbase/staffbase-plugin-sdk';
 const apiRefPath = 'docs/API.MD';
 const createToolURL = 'https://github.com/Staffbase/create-staffbase-plugin-nodejs';

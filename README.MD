@@ -7,7 +7,7 @@ If you are developing your own plugin for your Staffbase app we describe the aut
 
 ## Installation
 
-The plugin SDK can be fetched from the npm registry (http://npmjs.org/package/staffbase-plugins-nodejs). You can use npm command line tool to install it locally.
+The plugin SDK can be fetched from the npm registry (https://www.npmjs.com/package/@staffbase/staffbase-plugin-sdk). You can use npm command line tool to install it locally.
 
     npm install (@staffbase/staffbase-plugin-sdk)
 
@@ -182,5 +182,5 @@ To run the tests a simple `# npm test` command in the root directory will suffic
 
 Copyright 2017-2021 Staffbase GmbH.
 
-Licensed under the Apache License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0
+Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0
 
