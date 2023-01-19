@@ -64,6 +64,7 @@ class SSOToken {
 
         case message.indexOf('PEM routines:get_name:no start line') !== -1:
         case message.indexOf('PEM_read_bio_PUBKEY failed') !== -1:
+        case message.indexOf('secretOrPublicKey must be an asymmetric key when using') !== -1:
           throw new Error('Unable to read public key');
 
         case message.indexOf('jwt audience invalid') !== -1:
