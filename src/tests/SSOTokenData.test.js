@@ -9,6 +9,8 @@ const notBeforeTime = curTime - (1000 * 60);
 const secretPub = fs.readFileSync(path.join(__dirname, '../../testKeyFiles/jwtRS256.key')).toString();
 
 const tokenDataVals = {
+  CLAIM_BRANCH_ID: '5e3bfa789f436c5e2ee5141a',
+  CLAIM_BRANCH_SLUG: 'staffbase',
   CLAIM_AUDIENCE: 'testPlugin',
   CLAIM_EXPIRE_AT: expTime,
   CLAIM_NOT_BEFORE: notBeforeTime,
