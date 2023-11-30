@@ -35,6 +35,8 @@ SSOTokenData Class used to host the token data values and provide getter functio
     * [.toJSObj()](#markdown-header-ssotokendatatojsobj-object) ⇒ Object
     * [.toJSObjPretty()](#markdown-header-ssotokendatatojsobjpretty-object) ⇒ Object
     * [._getClaim(claimName)](#markdown-header-ssotokendata_getclaimclaimname-stringnumbernull) ⇒ String ⎮ number ⎮ null
+    * [.getBranchId()](#markdown-header-ssotokendatagetbranchid-nullstring) ⇒ null ⎮ string
+    * [.getBranchSlug()](#markdown-header-ssotokendatagetbranchslug-nullstring) ⇒ null ⎮ string
     * [.getAudience()](#markdown-header-ssotokendatagetaudience-nullstring) ⇒ null ⎮ string
     * [.getExpireAtTime()](#markdown-header-ssotokendatagetexpireattime-number) ⇒ number
     * [.getNotBeforeTime()](#markdown-header-ssotokendatagetnotbeforetime-number) ⇒ number
@@ -110,6 +112,15 @@ Internally used to get value against the client param string.
 | --- | --- | --- |
 | claimName | String | The claim name as defined in the tokenDataConsts |
 
+**Kind**: instance method of [SSOTokenData](#markdown-header-new-ssotokendatatokenvals)
+### ssoTokenData.getBranchId() ⇒ null ⎮ string
+Get the branch ID for which the token was issued.
+
+**Kind**: instance method of [SSOTokenData](#markdown-header-new-ssotokendatatokenvals)  
+### ssoTokenData.getBranchSlug() ⇒ null ⎮ string
+Get the branch slug for which the token was issued.
+
+**Kind**: instance method of [SSOTokenData](#markdown-header-new-ssotokendatatokenvals)  
 ### ssoTokenData.getAudience() ⇒ null ⎮ string
 Get targeted audience of the token.
 

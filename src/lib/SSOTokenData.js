@@ -12,6 +12,8 @@ class SSOTokenData {
    * @param  {Object} tokenVals TokenVals object wit keys representing possible SSO token values.
    */
   constructor(tokenVals) {
+    this.branch_id = tokenVals.CLAIM_BRANCH_ID;
+    this.branch_slug = tokenVals.CLAIM_BRANCH_SLUG;
     this.aud = tokenVals.CLAIM_AUDIENCE;
     this.exp = tokenVals.CLAIM_EXPIRE_AT;
     this.nbf = tokenVals.CLAIM_NOT_BEFORE;
@@ -106,6 +108,8 @@ class SSOTokenData {
    */
   toJSObj() {
     return {
+      branch_id: this.branch_id,
+      branch_slug: this.branch_slug,
       aud: this.aud,
       exp: this.exp,
       nbf: this.nbf,
@@ -134,6 +138,8 @@ class SSOTokenData {
    */
   toJSObjPretty() {
     return {
+      CLAIM_BRANCH_ID: this.branch_id,
+      CLAIM_BRANCH_SLUG: this.branch_slug,
       CLAIM_AUDIENCE: this.aud,
       CLAIM_EXPIRE_AT: this.exp,
       CLAIM_NOT_BEFORE: this.nbf,
@@ -167,6 +173,24 @@ class SSOTokenData {
     }
     return this[TokenDataConsts[claimName]] || null;
   }
+  /**
+   * Get the branch ID for which the token was issued.
+   *
+   * @return {null|string}
+   */
+  getBranchId() {
+    return this._getClaim('CLAIM_BRANCH_ID');
+  }
+
+  /**
+   * Get the branch slug for which the token was issued.
+   *
+   * @return {null|string}
+   */
+  getBranchSlug() {
+    return this._getClaim('CLAIM_BRANCH_SLUG');
+  }
+
   /**
    * Get targeted audience of the token.
    *

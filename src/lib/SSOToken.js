@@ -77,6 +77,8 @@ class SSOToken {
     }
 
     const tokenDataInst = new TokenData({
+      CLAIM_BRANCH_ID: decoded.branch_id || null,
+      CLAIM_BRANCH_SLUG: decoded.branch_slug || null,
       CLAIM_AUDIENCE: decoded.aud || null,
       CLAIM_EXPIRE_AT: decoded.exp || null,
       CLAIM_NOT_BEFORE: decoded.nbf || null,

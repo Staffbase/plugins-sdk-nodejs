@@ -17,6 +17,8 @@ const correctAudience = 'testPlugin';
 const wrongAudience = 'wrongIssuer';
 
 const tokenDataVals = {
+  CLAIM_BRANCH_ID: '5e3bfa789f436c5e2ee5141a',
+  CLAIM_BRANCH_SLUG: 'staffbase',
   CLAIM_AUDIENCE: 'testPlugin',
   CLAIM_EXPIRE_AT: expTime,
   CLAIM_NOT_BEFORE: notBeforeTime,
@@ -146,6 +148,8 @@ describe('Testing SSOToken Class', () => {
     test('test token constructor with token data correctly decoded with all values', () => {
       const newToken = new SSOToken(correctAudience, keyTokenPub, encodedTokenWithKey);
       const expected = {
+        branch_id: '5e3bfa789f436c5e2ee5141a',
+        branch_slug: 'staffbase',
         aud: 'testPlugin',
         exp: expTime,
         instance_id: '55c79b6ee4b06c6fb19bd1e2',

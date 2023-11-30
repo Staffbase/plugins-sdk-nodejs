@@ -1,4 +1,6 @@
 const constants = {
+  CLAIM_BRANCH_ID: 'branch_id',
+  CLAIM_BRANCH_SLUG: 'branch_slug',
   CLAIM_AUDIENCE: 'aud',
   CLAIM_EXPIRE_AT: 'exp',
   CLAIM_NOT_BEFORE: 'nbf',
