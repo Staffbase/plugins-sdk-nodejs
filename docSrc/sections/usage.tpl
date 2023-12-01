@@ -54,6 +54,8 @@ The following data can be retrieved from the token:
 
 |Helper Name|Token Key| Fetch Function| Description|
 | --- | --- | --- | --- |
+|CLAIM_BRANCH_ID|branch_id|getBranchId()|Get the branch ID for which the token was issued.|
+|CLAIM_BRANCH_SLUG|branch_slug|getBranchSlug()|Get the branch slug for which the token was issued.|
 |CLAIM_AUDIENCE|aud|getAudience()|Get targeted audience of the token.|
 |CLAIM_EXPIRE_AT|exp|getExpireAtTime()|Get the time when the token expires.|
 |CLAIM_NOT_BEFORE|nbf|getNotBeforeTime()|Get the time when the token starts to be valid.|

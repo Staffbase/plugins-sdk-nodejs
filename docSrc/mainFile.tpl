@@ -27,3 +27,5 @@
 ## License
 
 {{{license}}}
+
+{{{footer}}}

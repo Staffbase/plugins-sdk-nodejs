@@ -104,6 +104,19 @@ module.exports = {
         }
       });
     });
+    const footerPromise = new Promise( (resolve, reject) => {
+      fs.readFile(path.join(__dirname, 'footer.tpl'), (err, footerTpl) => {
+        if (err) {
+          reject(err);
+        } else {
+          const tpl = handlebars.compile(footerTpl.toString());
+          const rendered = tpl({
+
+          });
+          resolve(rendered);
+        }
+      });
+    });
     return Promise.all([
       overviewPromise,
       installationPromise,
@@ -112,6 +125,7 @@ module.exports = {
       contributionPromise,
       testPromise,
       licensePromise,
+      footerPromise,
     ]);
   },
 };
