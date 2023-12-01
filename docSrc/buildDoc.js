@@ -30,6 +30,7 @@ jsdoc2md.render({
       const contributionText = retArr[4];
       const testText = retArr[5];
       const licenseText = retArr[6];
+      const footerText = retArr[7];
 
       return new Promise( (resolve, reject) => {
         fs.readFile(path.join(__dirname, './mainFile.tpl'), (err, mainTpl) => {
@@ -45,6 +46,7 @@ jsdoc2md.render({
               contribution: contributionText,
               tests: testText,
               license: licenseText,
+              footer: footerText,
             });
             // Copy generated markdown file to root folder
             fs.writeFile(path.join(__dirname, '../README.MD'), rendered, (err, done) => {

@@ -112,7 +112,6 @@ Internally used to get value against the client param string.
 | --- | --- | --- |
 | claimName | String | The claim name as defined in the tokenDataConsts |
 
-**Kind**: instance method of [SSOTokenData](#markdown-header-new-ssotokendatatokenvals)
 ### ssoTokenData.getBranchId() ⇒ null ⎮ string
 Get the branch ID for which the token was issued.
 
