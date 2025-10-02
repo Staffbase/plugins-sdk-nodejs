@@ -29,7 +29,7 @@
     "url": "https://github.com/Staffbase/plugins-sdk-nodejs"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=20.0.0"
   },
   "author": "Hassaan Zaidi <hassaan@staffbase.com>",
   "license": "ISC",
