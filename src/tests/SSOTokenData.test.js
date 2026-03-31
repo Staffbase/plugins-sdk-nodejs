@@ -42,12 +42,12 @@ describe('Testing SSOTokenData Class', () => {
       test('Test secret to be non string', () => {
         expect( () => {
           SSOTokenDataObj.getSigned({});
-        }).toThrowError('Secret must be a string value');
+        }).toThrow('Secret must be a string value');
       });
       test('Should throw error if no secret specified', () => {
         expect( () => {
           SSOTokenDataObj.getSigned();
-        }).toThrowError('No secret specified');
+        }).toThrow('No secret specified');
       });
       test('Should return signed value if secret specified', () => {
         expect( () => {

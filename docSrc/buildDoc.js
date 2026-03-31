@@ -49,7 +49,7 @@ jsdoc2md.render({
               footer: footerText,
             });
             // Copy generated markdown file to root folder
-            fs.writeFile(path.join(__dirname, '../README.MD'), rendered, (err, done) => {
+            fs.writeFile(path.join(__dirname, '../README.md'), rendered, (err, done) => {
               if (err) {
                 reject(err);
               } else {
