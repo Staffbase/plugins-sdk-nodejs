@@ -64,17 +64,17 @@ describe('Testing SSOToken Class', () => {
       test('test token constructor with App Secret as null', () => {
         expect(() => {
           new SSOToken(null, wrongTokenData, correctAudience);
-        }).toThrowError('Audience null or not specified');
+        }).toThrow('Audience null or not specified');
       });
       test('test token constructor with non String value for App Secret', () => {
         expect(() => {
           new SSOToken({test: 1}, wrongTokenData, correctAudience);
-        }).toThrowError('Audience must be a string value');
+        }).toThrow('Audience must be a string value');
       });
       test('test token constructor with App Secret as empty string value', () => {
         expect(() => {
           new SSOToken('', wrongTokenData, correctAudience);
-        }).toThrowError('Audience cannot be an empty string');
+        }).toThrow('Audience cannot be an empty string');
       });
     });
 
@@ -82,22 +82,22 @@ describe('Testing SSOToken Class', () => {
       test('test token constructor with token encoded by unsupported algorithm', () => {
         expect(() => {
           new SSOToken(correctAudience, keyTokenPub, encodedTokenWrongAlgo);
-        }).toThrowError('Token Algorithm in not encoded in a supported format');
+        }).toThrow('Token Algorithm in not encoded in a supported format');
       });
       test('test token constructor with TokenData as null', () => {
         expect(() => {
           new SSOToken(correctAudience, keyTokenPub, null);
-        }).toThrowError('Token Data null or not specified');
+        }).toThrow('Token Data null or not specified');
       });
       test('test token constructor with non String value for Token Data', () => {
         expect(() => {
           new SSOToken(correctAudience, keyTokenPub, {nonString: true});
-        }).toThrowError('Token Data must be a string value');
+        }).toThrow('Token Data must be a string value');
       });
       test('test token constructor with Token Data as empty string value', () => {
         expect(() => {
           new SSOToken(correctAudience, keyTokenPub, '');
-        }).toThrowError('Token Data cannot be an empty string');
+        }).toThrow('Token Data cannot be an empty string');
       });
       test('test token constructor unable to decode token', () => {
         expect(() => {
@@ -107,7 +107,7 @@ describe('Testing SSOToken Class', () => {
       test('test token constructor with wrong jwt secret public key file', () => {
         expect(() => {
           new SSOToken(correctAudience, 'bad secret', encodedTokenWithKey);
-        }).toThrowError('Unable to read public key');
+        }).toThrow('Unable to read public key');
       });
       test('test token constructor with expired token', () => {
         expect(() => {
@@ -119,22 +119,22 @@ describe('Testing SSOToken Class', () => {
       test('test token constructor with Audience as null', () => {
         expect(() => {
           new SSOToken(null, keyTokenPub, encodedTokenWithKey);
-        }).toThrowError('Audience null or not specified');
+        }).toThrow('Audience null or not specified');
       });
       test('test token constructor with non String value for Audience', () => {
         expect(() => {
           new SSOToken({nonStringAud: true}, keyTokenPub, encodedTokenWithKey);
-        }).toThrowError('Audience must be a string value');
+        }).toThrow('Audience must be a string value');
       });
       test('test token constructor with Audience as empty string value', () => {
         expect(() => {
           new SSOToken('', keyTokenPub, encodedTokenWithKey);
-        }).toThrowError('Audience cannot be an empty string');
+        }).toThrow('Audience cannot be an empty string');
       });
       test('test token constructor with wrong Audience valie', () => {
         expect(() => {
           new SSOToken(wrongAudience, keyTokenPub, encodedTokenWithKey);
-        }).toThrowError('Incorrect audience value');
+        }).toThrow('Incorrect audience value');
       });
     });
     test('test token constructor with token data correctly decoded', () => {

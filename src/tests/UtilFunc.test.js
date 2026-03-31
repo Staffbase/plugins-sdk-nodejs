@@ -31,22 +31,22 @@ describe('Testing Utilitiy functions', () => {
       test('test empty filePath string', () => {
         expect( () => {
           helpers.readKeyFile('');
-        }).toThrowError('Path not specified or empty');
+        }).toThrow('Path not specified or empty');
       });
       test('test null filePath string', () => {
         expect( () => {
           helpers.readKeyFile(null);
-        }).toThrowError('Path not specified or empty');
+        }).toThrow('Path not specified or empty');
       });
       test('test invalid filepath', () => {
         expect( () => {
           helpers.readKeyFile(invalidFilePath);
-        }).toThrowError('Invalid file path');
+        }).toThrow('Invalid file path');
       });
       test('test reading invalid public key file', () => {
         expect( () => {
           helpers.readKeyFile(filePathInvKey);
-        }).toThrowError('Invalid key file');
+        }).toThrow('Invalid key file');
       });
       test('test reading valid public key file', () => {
         expect( () => {
@@ -97,17 +97,17 @@ describe('Testing Utilitiy functions', () => {
     test('test transforming null secret / key', () => {
       expect( () => {
         helpers.transformKeyToFormat();
-      }).toThrowError('No Secret Specified');
+      }).toThrow('No Secret Specified');
     });
     test('test transforming a non string secret / key', () => {
       expect( () => {
         helpers.transformKeyToFormat({key: 'asdasdasd'});
-      }).toThrowError('Key can only be a string value');
+      }).toThrow('Key can only be a string value');
     });
     test('test transforming empty secret / key', () => {
       expect( () => {
         helpers.transformKeyToFormat('');
-      }).toThrowError('Secret cannot be empty string');
+      }).toThrow('Secret cannot be empty string');
     });
     test('test transforming from Binary to PKCS8 format', () => {
       expect( () => {
@@ -125,7 +125,7 @@ describe('Testing Utilitiy functions', () => {
     test('test transforming a key in wrong format', () => {
       expect( () => {
         helpers.transformKeyToFormat(sampleWrongKey);
-      }).toThrowError('Secret in Unsupported Format');
+      }).toThrow('Secret in Unsupported Format');
     });
   });
 });
