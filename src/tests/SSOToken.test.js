@@ -115,6 +115,24 @@ describe('Testing SSOToken Class', () => {
         }).toThrow();
       });
     });
+    describe('Testing Token Constructor AppSecret cases', () => {
+      test('test token constructor with App Secret as null', () => {
+        expect(() => {
+          new SSOToken(correctAudience, null, encodedTokenWithKey);
+        }).toThrow('App Secret null or not specified');
+      });
+      test('test token constructor with non String value for App Secret', () => {
+        expect(() => {
+          new SSOToken(correctAudience, {notAString: true}, encodedTokenWithKey);
+        }).toThrow('App Secret must be a string value');
+      });
+      test('test token constructor with App Secret as empty string value', () => {
+        expect(() => {
+          new SSOToken(correctAudience, '', encodedTokenWithKey);
+        }).toThrow('App Secret cannot be an empty string');
+      });
+    });
+
     describe('Testing Token Constructor Audience cases', () => {
       test('test token constructor with Audience as null', () => {
         expect(() => {
