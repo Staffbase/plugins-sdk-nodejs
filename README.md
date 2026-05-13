@@ -182,7 +182,7 @@ To run the tests a simple `# npm test` command in the root directory will suffic
 
 ## License
 
-Copyright 2017-2026 Staffbase GmbH.
+Copyright 2017-2026 Staffbase SE.
 
 Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0
 
@@ -190,10 +190,10 @@ Licensed under the Apache License, Version 2.0: https://www.apache.org/licenses/
 <table>
       <tr>
         <td>
-          <img src="docs/assets/images/staffbase.png" alt="Staffbase GmbH" width="96" />
+          <img src="docs/assets/images/staffbase.png" alt="Staffbase SE" width="96" />
         </td>
         <td>
-          <b>Staffbase GmbH</b>
+          <b>Staffbase SE</b>
           <br />Staffbase is an internal communications platform built to revolutionize the way you work and unite your company. Staffbase is hiring: <a href="https://jobs.staffbase.com" target="_blank" rel="noreferrer">jobs.staffbase.com</a>
           <br /><a href="https://github.com/Staffbase" target="_blank" rel="noreferrer">GitHub</a> | <a href="https://staffbase.com/" target="_blank" rel="noreferrer">Website</a> | <a href="https://jobs.staffbase.com" target="_blank" rel="noreferrer">Jobs</a>
         </td>
