@@ -5,7 +5,6 @@ const invalidFilePath = path.resolve(__dirname, '../../testKeyFiles/missingfile.
 const filePathInvKey = path.resolve(__dirname, '../../testKeyFiles/jwtRS256.key.pub');
 const filePathValidKey = path.resolve(__dirname, '../../testKeyFiles/jwtRS256.pub');
 
-// eslint-disable-next-line max-len
 const sampleBinaryKey = 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApXd6RqV95G7+alU1PmA49n9IG8mCT27vpCpTJz3MGH+pqBEp6gLYDkP6lxK4ix5dy9NrOcKnaIWJ3xAc/JU+rVt6CiEyqJo4rchrNnRQsn4+P+efuVlsL959MqjzQC98qcVdf44C3wrxsOHE823zRACsJylOFkf7KkXd9c8L8vIj9x29q5K7NkGRKtOLKY7k4QPhlCVFDkMgAidHvi8HD7HDI6KYljguuhHUtRdrmC4i0NuwpSdqsavUJ9ASQu9Cr0QhpzOFJeZQ91ZkLoSDAkpSXAfBS+lvGtEnWLh7q3JczJOb3Tz8YolUTGfBlJ9iXiHDcY8PXdRTrvUVqeTe3wIDAQAB';
 const samplePKCS8Key = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApXd6RqV95G7+alU1PmA4
@@ -126,6 +125,37 @@ describe('Testing Utilitiy functions', () => {
       expect( () => {
         helpers.transformKeyToFormat(sampleWrongKey);
       }).toThrow('Secret in Unsupported Format');
+    });
+  });
+});
+
+describe('Testing readKeyFile error edge cases', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  test('sync: should rethrow unexpected errors (not ENOENT or encoding too long)', () => {
+    const fs = require('node:fs');
+    jest.spyOn(fs, 'readFileSync').mockImplementationOnce(() => Buffer.from(''));
+    expect(() => helpers.readKeyFile('/mocked/path')).toThrow('Empty key given');
+  });
+
+  test('async: should pass non-ENOENT fs.readFile errors to callback', (done) => {
+    const fs = require('node:fs');
+    const permError = new Error('EPERM: operation not permitted, open \'/some/path\'');
+    jest.spyOn(fs, 'readFile').mockImplementationOnce((path, cb) => cb(permError, null));
+    helpers.readKeyFile('/mocked/path', (err) => {
+      expect(err).toBe(permError);
+      done();
+    });
+  });
+
+  test('async: should pass unexpected NodeRSA errors to callback', (done) => {
+    const fs = require('node:fs');
+    jest.spyOn(fs, 'readFile').mockImplementationOnce((path, cb) => cb(null, Buffer.from('')));
+    helpers.readKeyFile('/mocked/path', (err) => {
+      expect(err.message).toBe('Empty key given');
+      done();
     });
   });
 });

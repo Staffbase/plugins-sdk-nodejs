@@ -63,6 +63,17 @@ describe('Testing SSOTokenData Class', () => {
       //     expect(err).toEqual('Secret must be a string value');
       //   });
       // });
+      test('Test secret to be non string with callback', (done) => {
+        SSOTokenDataObj.getSigned({}, (err) => {
+          expect(err).toBe('Secret must be a string value');
+          done();
+        });
+      });
+      test('Should throw if callback is not a function', () => {
+        expect(() => {
+          SSOTokenDataObj.getSigned(secretPub, 'notAFunction');
+        }).toThrow('Callback must be a function');
+      });
       test('Should return error if no secret specified', (done) => {
         SSOTokenDataObj.getSigned(null, (err, signed) => {
           expect(err).toBe('No secret specified');
@@ -77,5 +88,145 @@ describe('Testing SSOTokenData Class', () => {
         });
       });
     });
+  });
+
+  describe('Testing SSOTokenData._getSignedWrong', () => {
+    describe('Sync mode', () => {
+      test('Should throw if no secret specified', () => {
+        expect(() => {
+          SSOTokenDataObj._getSignedWrong();
+        }).toThrow('No secret specified');
+      });
+      test('Should return signed value with any string secret (HS256 default)', () => {
+        const signed = SSOTokenDataObj._getSignedWrong('simple-secret');
+        expect(signed).toBeDefined();
+      });
+    });
+    describe('Async mode', () => {
+      test('Should call callback with "No secret specified" when null secret and cb provided', () => {
+        const calls = [];
+        SSOTokenDataObj._getSignedWrong(null, (err) => {
+          calls.push(err);
+        });
+        expect(calls[0]).toBe('No secret specified');
+      });
+      test('Should call callback with signed value if secret specified', (done) => {
+        SSOTokenDataObj._getSignedWrong('simple-secret', (err, signed) => {
+          expect(err).toBeFalsy();
+          expect(signed).toBeDefined();
+          done();
+        });
+      });
+    });
+    describe('Catch block', () => {
+      test('Should throw when jwt.sign throws internally', () => {
+        const jwt = require('jsonwebtoken');
+        jest.spyOn(jwt, 'sign').mockImplementationOnce(() => {
+          throw new Error('mocked jwt error');
+        });
+        expect(() => {
+          SSOTokenDataObj._getSignedWrong('some-secret');
+        }).toThrow('mocked jwt error');
+        jest.restoreAllMocks();
+      });
+    });
+  });
+
+  describe('Testing getSigned catch block', () => {
+    test('getSigned returns undefined when jwt.sign throws with invalid RSA key', () => {
+      const result = SSOTokenDataObj.getSigned('not-a-valid-rsa-key');
+      expect(result).toBeUndefined();
+    });
+  });
+});
+
+describe('Testing SSOTokenData getter methods', () => {
+  test('getBranchId returns correct value', () => {
+    expect(SSOTokenDataObj.getBranchId()).toBe('5e3bfa789f436c5e2ee5141a');
+  });
+  test('getBranchSlug returns correct value', () => {
+    expect(SSOTokenDataObj.getBranchSlug()).toBe('staffbase');
+  });
+  test('getAudience returns correct value', () => {
+    expect(SSOTokenDataObj.getAudience()).toBe('testPlugin');
+  });
+  test('getExpireAtTime returns correct value', () => {
+    expect(SSOTokenDataObj.getExpireAtTime()).toBe(tokenDataVals.CLAIM_EXPIRE_AT);
+  });
+  test('getNotBeforeTime returns correct value', () => {
+    expect(SSOTokenDataObj.getNotBeforeTime()).toBe(tokenDataVals.CLAIM_NOT_BEFORE);
+  });
+  test('getIssuedAtTime returns correct value', () => {
+    expect(SSOTokenDataObj.getIssuedAtTime()).toBe(tokenDataVals.CLAIM_ISSUED_AT);
+  });
+  test('getIssuer returns correct value', () => {
+    expect(SSOTokenDataObj.getIssuer()).toBe('api.staffbase.com');
+  });
+  test('getInstanceId returns correct value', () => {
+    expect(SSOTokenDataObj.getInstanceId()).toBe('55c79b6ee4b06c6fb19bd1e2');
+  });
+  test('getInstanceName returns correct value', () => {
+    expect(SSOTokenDataObj.getInstanceName()).toBe('Our locations');
+  });
+  test('getUserId returns correct value', () => {
+    expect(SSOTokenDataObj.getUserId()).toBe('541954c3e4b08bbdce1a340a');
+  });
+  test('getUserExternalId returns correct value', () => {
+    expect(SSOTokenDataObj.getUserExternalId()).toBe('jdoe');
+  });
+  test('getUserUsername returns correct value', () => {
+    expect(SSOTokenDataObj.getUserUsername()).toBe('john.doe');
+  });
+  test('getUserPrimaryEmailAddress returns correct value', () => {
+    expect(SSOTokenDataObj.getUserPrimaryEmailAddress()).toBe('jdoe@email.com');
+  });
+  test('getFullName returns correct value', () => {
+    expect(SSOTokenDataObj.getFullName()).toBe('John Doe');
+  });
+  test('getFirstName returns correct value', () => {
+    expect(SSOTokenDataObj.getFirstName()).toBe('John');
+  });
+  test('getLastName returns correct value', () => {
+    expect(SSOTokenDataObj.getLastName()).toBe('Doe');
+  });
+  test('getRole returns correct value', () => {
+    expect(SSOTokenDataObj.getRole()).toBe('editor');
+  });
+  test('getType returns correct value', () => {
+    expect(SSOTokenDataObj.getType()).toBe('type');
+  });
+  test('getThemeTextColor returns correct value', () => {
+    expect(SSOTokenDataObj.getThemeTextColor()).toBe('#00ABAB');
+  });
+  test('getThemeBackgroundColor returns correct value', () => {
+    expect(SSOTokenDataObj.getThemeBackgroundColor()).toBe('#FFAABB');
+  });
+  test('getLocale returns correct value', () => {
+    expect(SSOTokenDataObj.getLocale()).toBe('en-US');
+  });
+  test('isEditor returns true for editor role', () => {
+    expect(SSOTokenDataObj.isEditor()).toBe(true);
+  });
+  test('isEditor returns false for non-editor role', () => {
+    const userTokenData = new SSOTokenData({...tokenDataVals, CLAIM_USER_ROLE: 'user'});
+    expect(userTokenData.isEditor()).toBe(false);
+  });
+  test('getTags returns null when no tags', () => {
+    expect(SSOTokenDataObj.getTags()).toBeNull();
+  });
+  test('_getClaim throws for invalid claim name', () => {
+    expect(() => {
+      SSOTokenDataObj._getClaim('INVALID_CLAIM');
+    }).toThrow('Invalid Claim');
+  });
+  test('toJSObj returns correct structure', () => {
+    const obj = SSOTokenDataObj.toJSObj();
+    expect(obj.aud).toBe('testPlugin');
+    expect(obj.sub).toBe('541954c3e4b08bbdce1a340a');
+  });
+  test('toJSObjPretty returns correct structure', () => {
+    const obj = SSOTokenDataObj.toJSObjPretty();
+    expect(obj.CLAIM_AUDIENCE).toBe('testPlugin');
+    expect(obj.CLAIM_USER_ID).toBe('541954c3e4b08bbdce1a340a');
   });
 });
