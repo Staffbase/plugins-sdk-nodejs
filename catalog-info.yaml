@@ -12,5 +12,5 @@ metadata:
     - public
 spec:
   type: library
-  owner: need-for-speed
+  owner: group:default/product-actions
   lifecycle: production
