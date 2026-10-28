@@ -41,7 +41,7 @@
     "dmd-bitbucket": "^0.1.10",
     "eslint": "^10.0.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-plugin-n": "^17.24.0",
+    "eslint-plugin-n": "^18.0.1",
     "handlebars": "^4.7.9",
     "jest": "^30.2.0",
     "jsdoc-to-markdown": "^9.1.3",
